@@ -1,0 +1,12 @@
+public class mergesort{
+    public ArrayList<Integer> merge(ArrayList<Integer> a, ArrayList<Integer> b){
+    /*
+      a and b are ArrayLists that are alread sorted from low to high.
+      The could be empty
+
+      build and return a sorted ArrayList using the merge technique we
+      discussed in class
+    */
+    }
+
+}
