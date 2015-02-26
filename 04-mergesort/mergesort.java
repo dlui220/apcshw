@@ -34,7 +34,9 @@ public class mergesort{
 		result[rc] = a[ac];
 		rc++;
 		bc++;
-	    } else if ((ac < a.length && bc < b.length)&&(a[ac] > b[bc])){
+	    }
+	    /*
+	    else if ((ac < a.length && bc < b.length)&&(a[ac] > b[bc])){
 		result[rc] = a[ac];
 		rc++;
 		ac++;
@@ -43,6 +45,7 @@ public class mergesort{
 		rc++;
 		bc++;
 	    }
+	    */
 		
 	}
 	return result;
