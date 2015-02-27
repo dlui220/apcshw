@@ -5,4 +5,5 @@ Process Review
 - Project did not always come out the way they expected
 
 - Bad idea to split early
+- APCS is fun
 
