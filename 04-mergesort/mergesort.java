@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class mergesort{
-
+    /*
     public ArrayList<Integer> merge(ArrayList<Integer> a, ArrayList<Integer> b){
 	ArrayList<Integer> result = new ArrayList<Integer>();
 	while (a.size() > 0 || b.size() > 0){
@@ -19,8 +19,8 @@ public class mergesort{
 
 	return result;
     }
-
-    /*   public int[] merge(int[] a, int[] b){
+    */
+    public int[] merge(int[] a, int[] b){
 	int[] result = new int[a.length + b.length];
 	int ac = 0;
 	int bc = 0;
@@ -33,38 +33,47 @@ public class mergesort{
 	    } else if (bc == b.length){
 		result[rc] = a[ac];
 		rc++;
-		bc++;
-	    }
-	    /*
-	    else if ((ac < a.length && bc < b.length)&&(a[ac] > b[bc])){
-		result[rc] = a[ac];
-		rc++;
 		ac++;
-	    } else if ((ac < a.length && bc < b.length)&&(a[ac] < b[bc])){
+	    } else if (a[ac] > b[bc]){
 		result[rc] = b[bc];
 		rc++;
 		bc++;
+	    } else {
+		result[rc] = a[ac];
+		rc++;
+		ac++;
 	    }
-	    */
-    /*	
 	}
 	return result;
     }
-    */
+    
 
+    /*
       public ArrayList<Integer> msort(ArrayList<Integer> L){
-	  ArrayList<Integer> result = new ArrayList<Integer>();
 	  int m = L.size()/2;
-	  if (L.size() >= 1){
+	  if (L.size() > 1){
 	      ArrayList<Integer> a = new ArrayList<Integer>(L.subList(0,m));
 	      ArrayList<Integer> b = new ArrayList<Integer>(L.subList(m,L.size()));
-	      merge(msort(a),msort(b));
-	}
-	  return result;
+	      ArrayList a1 = msort(a);
+	      ArrayList a2 = msort(b);
+	      return merge(a1,a2);
+	  } else {
+	      return L;
+	  }
       }
-
-      
-	
+    */
+    public int[] msort(int[] L){
+	int m = L.length/2;
+	if (L.length > 1){
+	    int[] a = Arrays.copyOfRange(L, 0, m);
+	    int[] b = Arrays.copyOfRange(L, m, L.length);
+	    int[] a1 = msort(a);
+	    int[] a2 = msort(b);
+	    return merge(a1,a2);
+	} else {
+	    return L;
+	}
+    }
 
 			 
 	    
@@ -73,7 +82,7 @@ public class mergesort{
     
     public static void main(String[] args){
 	mergesort m = new mergesort();
-	
+	/*
 	ArrayList<Integer> first = new ArrayList<Integer>();
 	ArrayList<Integer> second = new ArrayList<Integer>();
 
@@ -89,7 +98,7 @@ public class mergesort{
 
 	System.out.println(first);
 	System.out.println(second);
-
+	
 	ArrayList<Integer> testcase = new ArrayList<Integer>();
 	testcase.add(1);
 	testcase.add(9);
@@ -99,25 +108,23 @@ public class mergesort{
 	testcase.add(7);
 	testcase.add(3);
 	
-	/*
-	int[] firstarray = new int[4];
-	int[] secarray = new int[4];
+	*/
+	int[] firstarray = new int[8];
 	firstarray[0] = 1;
 	firstarray[1] = 6;
 	firstarray[2] = 8;
 	firstarray[3] = 10;
-
-	secarray[0] = 2;
-	secarray[1] = 3;
-	secarray[2] = 7;
-	secarray[3] = 9;
+	firstarray[4] = 2;
+	firstarray[5] = 3;
+	firstarray[6] = 7;
+	firstarray[7] = 9;
 	
 	System.out.println(Arrays.toString(firstarray));
-	System.out.println(Arrays.toString(secarray));
-	*/
-
+	//	System.out.println(Arrays.toString(secarray));
+	
+	System.out.println(Arrays.toString(m.msort(firstarray)));
 	//	System.out.println(m.merge(first,second));
 	
-	System.out.println(m.msort(testcase));
+	//      System.out.println(m.msort(testcase));
     }
 }
