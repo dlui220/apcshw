@@ -7,13 +7,17 @@ public class mergesort{
 	ArrayList<Integer> result = new ArrayList<Integer>();
 	while (a.size() > 0 || b.size() > 0){
 	    if(b.size()==0){
-		result.add(a.remove(0));
+		result.add(a.get(iA));
+		iA++;
 	    } else if (a.size() == 0){
-	        result.add(b.remove(0));
+	        result.add(b.get(iB));
+		iB++;
 	    } else if (a.get(0) > b.get(0)){
-		result.add(b.remove(0));
+		result.add(b.get(iB));
+		iB++;
 	    } else {
-		result.add(a.remove(0));
+	        result.add(a.(iA));
+	        iA++;
 	    }
 	}
 
@@ -109,7 +113,7 @@ public class mergesort{
 	testcase.add(3);
 	
 	*/
-	int[] firstarray = new int[8];
+	int[] firstarray = new int[9];
 	firstarray[0] = 1;
 	firstarray[1] = 6;
 	firstarray[2] = 8;
@@ -118,6 +122,7 @@ public class mergesort{
 	firstarray[5] = 3;
 	firstarray[6] = 7;
 	firstarray[7] = 9;
+	firstarray[8] = 2;
 	
 	System.out.println(Arrays.toString(firstarray));
 	//	System.out.println(Arrays.toString(secarray));

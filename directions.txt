@@ -1,0 +1,33 @@
+select(A,3,A.length-1)
+L;H are the limits for the selection, similar to in the Binary search
+it starts with them at 0 and A.length-1 and L or H change in each recursive call
+
+0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19
+3  8 16  4 12  2  5  9  7  6
+
+1) select pivot value
+   (you should select A[L])
+2) swap A[H] and A[Pi]
+3)Li = L; Hi = H - 1
+4) while Hi > Li
+      if A[Li] < P
+         Li++
+      else
+         swap A[Li], A[Hi]
+         Hi--
+   **   
+
+   if A[Li] > P
+     swap A[Li],A[Pi]
+   else
+     swap A[Li+1],A[Pi]
+     
+   ** Update pivot index
+
+   if k = Pi
+      done
+   else
+      either select(A,k,0,Pi-1)
+      	     or
+      	     select (A,k,Pi+1,Hi)
+
