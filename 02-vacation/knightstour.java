@@ -59,7 +59,7 @@ public class knightstour
 	    solved = true;
 	}
 
-	delay(500);
+	delay(100);
 	System.out.println(this);
 	if (!solved){
 	    board[x][y] = count;
@@ -79,7 +79,7 @@ public class knightstour
     }
 		
     public static void main(String[] args){
-	knightstour k = new knightstour(11);
+	knightstour k = new knightstour(15);
 	k.solve(2,2);
 	System.out.println(k);
 	

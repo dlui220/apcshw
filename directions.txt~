@@ -1,0 +1,6 @@
+select(A,3,A.length-1)
+L;H are the limits for the selection, similar to in the Binary search
+it starts with them at 0 and A.length-1 and L or H change in each recursive call
+
+1) select pivot value
+   (you should select A[L])
