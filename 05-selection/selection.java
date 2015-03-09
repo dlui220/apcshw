@@ -3,7 +3,7 @@ public class selection{
 	
     }
 
-        public int Select(int[] a, int k, ing l, int h){
+        public int Select(int[] a, int k, int l, int h){
 	int pivot = a[k];
 	a[k]=a[h];
 	li=l;
