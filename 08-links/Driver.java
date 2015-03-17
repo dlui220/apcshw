@@ -8,5 +8,13 @@ public class Driver{
 	}
 	System.out.println(l.find(5));
 	System.out.println(l);
+	l.remove(7);
+	System.out.println(l);
+	l.remove(2);
+	System.out.println(l);
+	l.remove(1);
+	System.out.println(l);
+	l.remove(3);
+	System.out.println(l);
     }
 }
