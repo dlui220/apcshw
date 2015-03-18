@@ -3,7 +3,7 @@ public class LList{
     private Node dummy;
     private int len = 0;
 
-    public void add(String s){
+    public void add(int s){
 	dummy = new Node("");
 	Node temp = new Node(s);
 	temp.setNext(l);
@@ -22,20 +22,35 @@ public class LList{
 	return s;
     }
 
-    public Node get(int n){
+    public int get(int n){
 	Node temp = dummy;
 	for(int i = 0;i < n; i ++){
 	    temp = temp.getNext();
 	}
-	return temp;	
+	return temp.getData();	
     }
-
+    /*
     public void remove(int n){
-	Node front = get(n-1);
-	Node back = get(n+1);
+	Node front = dummy;
+	for (int i=0;i<n-1;i++){
+	    front=front.getNext();
+	}
+	Node back = dummy;
+	for (int x = 0; x<n+1;x++){
+	    back=back.getNext();
+	}
 	front.setNext(back);
     }
+    */
+    public int remove(int i){
+	Node temp = dummy;
+    	int result = 0;
+	for (int i = 0; i< this.len;i++){
+	    //look thru linked list and find the element + index
+	}
 
+	return result;
+    }
     public void add(int n, String s){
 	Node a = new Node(s);
 	Node before = dummy;
@@ -68,3 +83,16 @@ public class LList{
 
     
 }
+
+/*
+  public string remove(int n){
+     if (n<0 || n>this.len)
+        throw (exception);
+   Node T = L;
+   for (int i=0;i<n;i++){
+      T=T.getNext();
+   }
+   String s = T.getNext().getData();
+   T.setNext(T.getNext().getNext());
+   return s;
+ */
