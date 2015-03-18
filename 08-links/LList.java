@@ -1,58 +1,70 @@
 public class LList{
     private Node l=null;
-    private Node m=null;
+    private Node dummy;
+    private int len = 0;
+
     public void add(String s){
-	Node tmp = new Node(s);
-	tmp.setNext(l);
-	l = tmp;
+	dummy = new Node("");
+	Node temp = new Node(s);
+	temp.setNext(l);
+	l = temp;
+	dummy.setNext(temp);
+	len++;
     }
+
     public String toString(){
 	String s = "";
-	Node tmp;;
-	for (tmp=l ; tmp!=null ; tmp=tmp.getNext()){
-	    s = s + tmp + " --> ";
+	Node temp;
+	for (temp=dummy ; temp!=null ; temp=temp.getNext()){
+	    s = s + temp + " --> ";
 	}
 	s = s + "null";
 	return s;
     }
-    public String find(int n){
-	Node temp = l;
+
+    public Node get(int n){
+	Node temp = dummy;
 	for(int i = 0;i < n; i ++){
 	    temp = temp.getNext();
 	}
-	return temp.getData();	
+	return temp;	
     }
-    public void insert(int index, String s){
+
+    public void remove(int n){
+	Node front = get(n-1);
+	Node back = get(n+1);
+	front.setNext(back);
+    }
+
+    public void add(int n, String s){
 	Node a = new Node(s);
-	if(index == 0){
-	    add(s);
+	Node before = dummy;
+	for(int i = 0; i < n;i ++){
+	    before = before.getNext();
 	}
-	else{
-	    Node before = l;
-	    for(int i = 0; i < index - 1;i ++){
-		before = before.getNext();
-	    }
-	    Node after = l;
-	    for(int i = 0; i < index; i ++){
-		after = after.getNext();
-	    }
-	    a.setNext(after);
-	    before.setNext(a);
+	Node after = dummy;
+	for(int i = 0; i < n+1; i ++){
+	    after = after.getNext();
 	}
-	
+	a.setNext(after);
+	before.setNext(a);
     }
+    
+    /*
     public void remove(int n){
 	int before = n-1;
 	Node temp = l;
 	for(int i = 0;i < before; i ++){
 	    temp = temp.getNext();
 	}
-	if (temp.getNext().getNext() != null){
+	if (temp.getNext() == null){
+	    
 	    temp.setNext(temp.getNext().getNext());
 	} else {
 	    temp.setNext(null);
 	}
     }
+    */
 
     
 }
