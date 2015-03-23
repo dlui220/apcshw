@@ -6,15 +6,13 @@ public class Driver{
 	for (int i=0;i<5;i++){
 	    l.add(""+i);
 	}
+	System.out.println(l);
+	l.add(1, "a");
+	System.out.println(l);
+	l.add(0, "b");
+	System.out.println(l);
 	System.out.println(l.get(5));
-	System.out.println(l);
-	l.remove(7);
-	System.out.println(l);
-	l.add(5,"swagger");
-	System.out.println(l);
-	l.remove(1);
-	System.out.println(l);
-	l.remove(3);
+	l.remove(0);
 	System.out.println(l);
     }
 }

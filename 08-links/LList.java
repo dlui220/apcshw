@@ -3,7 +3,7 @@ public class LList{
     private Node dummy;
     private int len = 0;
 
-    public void add(int s){
+    public void add(String s){
 	dummy = new Node("");
 	Node temp = new Node(s);
 	temp.setNext(l);
@@ -24,6 +24,9 @@ public class LList{
 
     public int get(int n){
 	Node temp = dummy;
+	if (n > len){
+	    return null;
+	}
 	for(int i = 0;i < n; i ++){
 	    temp = temp.getNext();
 	}
@@ -42,15 +45,26 @@ public class LList{
 	front.setNext(back);
     }
     */
-    public int remove(int i){
-	Node temp = dummy;
-    	int result = 0;
-	for (int i = 0; i< this.len;i++){
-	    //look thru linked list and find the element + index
+    public void remove(int n){
+	if (n > len){
+	    return ;
+	} else if (n == 0){
+	    dummy.setNext(l.getNext());
+	    l = dummy.getNext();
+	}
+	Node tmp = l;
+	while (n > 1){
+	    n--;
+	    tmp = tmp.getNext();
+	}
+	if (tmp.getNext().getNext() != null){
+	    tmp.setNext(tmp.getNext().getNext());
+	} else {
+	    tmp.setNext(null);
 	}
 
-	return result;
     }
+
     public void add(int n, String s){
 	Node a = new Node(s);
 	Node before = dummy;
