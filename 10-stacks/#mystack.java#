@@ -1,0 +1,26 @@
+public class mystack {
+    // You decide how the node(s) are declared
+    // make whatever constructor(s) you need
+    private Node l;
+
+    public mystack(Node tmp) {
+	l = tmp;
+    }
+
+    public void push(E data){
+        // add something to the top
+    }
+
+    public E pop(){
+        // remove and return the top item from the stack
+    }
+
+    public boolean empty(){
+
+    }
+
+    public E top() {
+        // return the top item from the stack
+    }
+
+}
