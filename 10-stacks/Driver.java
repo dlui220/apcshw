@@ -4,5 +4,8 @@ public class Driver {
 	s.push("hello");
 	s.push("world");
 	System.out.println(s.toString());
+	s.pop();
+	System.out.println(s.toString());
+	
     }
 }
