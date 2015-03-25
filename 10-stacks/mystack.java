@@ -34,16 +34,17 @@ public class mystack<E> {
 	Node<E> tmp = new Node<E>();
 	tmp = top;
 	top = top.getPrev();
+	// System.out.println(tmp.getData());
 	return tmp.getData();	
     }
     /*
     public boolean empty(){
 
     }
-
-    public E top() {
-	
-        // return the top item from the stack
-    }
     */
+    public E top() {
+	// return the top item from the stack
+	return top.getData();
+    }
+    
 }

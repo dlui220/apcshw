@@ -6,6 +6,7 @@ public class Driver {
 	System.out.println(s.toString());
 	s.pop();
 	System.out.println(s.toString());
+	System.out.println(s.top());
 	
     }
 }
