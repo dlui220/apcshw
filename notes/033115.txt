@@ -1,0 +1,39 @@
+Maze Solver
+-------------
+Depth-first search
+
+2d array
+#  path
+.  visited
+   wall
+$  exit
+z  me
+
+Recursive solver
+   previous locations stored on the call stack
+   
+----------------------------------------------------
+
+Breadth-first search
+
+place start node on frontier and mark it processed
+
+while (     ) {
+   current = q.dequeue()
+   if (board[current.getX()][current.getY()] == '$') {System.exit(0));}
+
+   // remove first node from frontier
+   mark current as visited
+   for each unprocessed neighbor N of current:
+      mark N as processed
+      q.enqueue(N)
+      // add on to frontier
+
+q.enqueue(start node)
+mark start node as processed
+-------------------------------
+class frontier
+
+class Node
+  x
+  y
