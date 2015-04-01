@@ -1,0 +1,8 @@
+setup
+  put x,y on frontier
+while (if not empty) (
+  current  remove 1st item from frontier;
+  for each unvisited neighbor N of current:
+     mark N as visited
+     add N to frontier
+     if N is exit then exit
