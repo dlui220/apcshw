@@ -13,6 +13,7 @@ public class maze
     private char exit='$';
     private char visited = '.';
     private boolean solved = false;
+    private myQueue<int[]> frontier;
 		
     public void delay(int n){
 	try {
@@ -27,23 +28,20 @@ public class maze
 	board = new char[maxX][maxY];
 				
 	try {
-						
 	    Scanner sc = new Scanner(new File("maze.dat"));
 	    int j=0;
-	    while (sc.hasNext())
-		{
-		    String line = sc.nextLine();
-		    for (int i=0;i<maxX;i++)
-			{
-			    board[i][j] = line.charAt(i);
-			}
-		    j++;
-		}
+	    while (sc.hasNext()){
+		String line = sc.nextLine();
+		for (int i=0;i<maxX;i++){
+			board[i][j] = line.charAt(i);
+		    }
+		j++;
+	    }
 	}
 	catch (Exception e)
 	    {
 	    }
-				
+	frontier = new myQueue<int[]>();
     }
 		
     public String toString()
