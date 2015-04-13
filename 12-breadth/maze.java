@@ -9,9 +9,10 @@ public class maze
 
     private char path='#';
     private char wall=' ';
-    private char me='z';
+    private char me='d';
     private char exit='$';
     private char visited = '.';
+    private char way = '*';
     private boolean solved = false;
     private myQueue<int[]> frontier;
 		
@@ -44,47 +45,50 @@ public class maze
 	frontier = new myQueue<int[]>();
     }
 		
-    public String toString()
-    {
+    public String toString(){
 	String s = "[2J\n";
-				
-	for (int y=0;y<maxY;y++)
-	    {
-		for (int x=0;x<maxX;x++)
-		    s = s +board[x][y];
-		s=s+"\n";
+	for (int y=0;y<maxY;y++){
+	    for (int x=0;x<maxX;x++){
+		s = s +board[x][y];
 	    }
+	    s=s+"\n";
+	}
 	return s;
     }
-
-    /*
-      solved - instance variable to indicate we're done
-			
-    */
-    public void solve(int x, int y){
-	if (board[x][y]==wall ||
-	    board[x][y]==me ||
-	    board[x][y]==visited ||
-	    solved){
-	    return;
-	}
-
-	if (board[x][y]==exit){
+    
+   
+    public void solve(){
+	while (!solved){
+	    Node<int[]> n = frontier.dequeue();
+	    int[] coordinates = n.getData();
+	    int x = coordinates[0];
+	    int y = coordinates[1];
+	    	    
+	    /*
+	    if (board[x][y]==wall ||
+		board[x][y]==me ||
+		board[x][y]==visited ||
+		solved){
+		return;
+	    }
+	    */
+	    if (board[x][y]==exit){
+		System.out.println(this);
+		solved = true;
+	    }
+	    delay(100);
 	    System.out.println(this);
-	    solved = true;
-	}
-	delay(100);
-	System.out.println(this);
-	board[x][y]=me;
-	solve(x+1,y);
-	solve(x-1,y);
-	solve(x,y+1);
-	solve(x,y-1);
-	if (!solved){
-	    board[x][y]=visited;
+	    board[x][y]=me;
+	    solve(x+1,y);
+	    solve(x-1,y);
+	    solve(x,y+1);
+	    solve(x,y-1);
+	    if (!solved){
+		board[x][y]=visited;
+	    }
 	}
     }
-		
+	
     public static void main(String[] args){
 	maze m = new maze();
 	System.out.println(m);
