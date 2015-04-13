@@ -1,0 +1,13 @@
+public void bfs(int x, int y){
+    Frontier f = new Frontier();
+    
+    f.add(new Node(x,y));
+    
+    while (!f.isEmpty()){
+	Node current = f.remove();
+	int cx = current.getX();
+	int cy = current.getY();
+	
+	board[x][y]='z';
+    }
+}
