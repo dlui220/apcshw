@@ -72,12 +72,70 @@ public class maze
 		return;
 	    }
 	    */
+	    
+	    /*
 	    if (board[x][y]==exit){
 		System.out.println(this);
 		solved = true;
 	    }
-	    delay(100);
-	    System.out.println(this);
+	    */
+
+	    if (board[x][y] == exit) {
+		Node<int[]> X = n;
+		while(X!=null){
+		    int[] Xcoordinates = X.getData();
+		    int Xx = Xcoordinates[0];
+		    int Xy = Xcoordinates[1];
+		    board[Xx][Xy] = way;
+		    X = X.getOrigin();
+		}
+		solved = true;
+	    }
+
+	    if (board[x+1][y]==path || board[x+1][y]==exit){
+                if(board[x+1][y]==path){
+		    board[x+1][y]=me;
+		}
+                int[] data = {x+1,y};
+                Node<int[]> temp = new Node<int[]>(n,data);
+                frontier.enqueue(temp);
+            }
+
+
+            if (board[x-1][y]==path || board[x-1][y]==exit){
+                if(board[x-1][y]==path){
+		    board[x-1][y]=me;
+		}
+                int[] data = {x-1,y};
+                Node<int[]> temp = new Node<int[]>(n,data);
+                frontier.enqueue(temp);
+            }
+
+
+            if (board[x][y+1]==path || board[x][y+1]==exit){
+                if(board[x][y+1]==path){
+		    board[x][y+1]=me;
+		}
+                int[] data = {x,y+1};
+                Node<int[]> temp = new Node<int[]>(n,data);
+                frontier.enqueue(temp);
+            }
+
+
+            if (board[x][y-1]==path || board[x][y-1]==exit){
+                if(board[x][y-1]==path){
+		    board[x][y-1]=me;
+		}
+                int[] data = {x,y-1};
+                Node<int[]> temp = new Node<int[]>(n,data);
+                frontier.enqueue(temp);
+            }
+            
+            delay(50);
+            if(board[x][y]!=way) board[x][y]=visited;
+            System.out.println(this);
+	    
+	    /*
 	    board[x][y]=me;
 	    solve(x+1,y);
 	    solve(x-1,y);
@@ -86,14 +144,23 @@ public class maze
 	    if (!solved){
 		board[x][y]=visited;
 	    }
+	    */
 	}
     }
-	
+    public void startsolve(){
+        int[] startpt = {1,1};
+        board[1][1]=me;
+        Node<int[]> n = new Node<int[]>(startpt);
+        frontier.enqueue(n);
+        solve();
+    }
+
+    /*	
     public static void main(String[] args){
 	maze m = new maze();
 	System.out.println(m);
 	m.solve(1,1);
 	System.out.println(m);
-		
-    }
+    */		
+
 }

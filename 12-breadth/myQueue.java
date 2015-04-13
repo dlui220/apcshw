@@ -1,70 +1,44 @@
-public class myQueue<E> {
+import java.io.*;
+import java.util.*;
 
-    private Node<E> front;
-    private Node<E> back;
-
-    public myQueue() {
-	front = null;
-	back = null;
+public class myQueue<E>{
+    private Node<E> top, bottom;
+    
+    public myQueue(){
+        bottom = new Node<E>(null);
     }
 
-    public void enqueue(E data) {
-        if ( empty() ) {
-	    front = new Node<E>(data);
-	    front.setNext(back);
-	} else if ( front.getNext() == null ) {
-	    back = new Node<E>(data);
-	    front.setNext(back);
-	    back.setPrev(front);
-	} else {
-	    Node<E> tmp = new Node<E>(data);
-	    back.setNext(tmp);
-	    tmp.setPrev(back);
-	    back = tmp;
+    public void enqueue(Node<E> data){
+	if(bottom.getData()==null){
+	    bottom = data;
+            top = bottom;
+	}else{
+	    data.setPrev(top);
+	    top.setNext(data);
+	    top=data;
 	}
     }
-
-    public E dequeue() { 				
-	if ( empty() ) {
-	    return null;
-	} else if ( front.getNext() == back ) {
-	    E tmp = front.getData();
-	    front = front.getNext();
-	    back = null;
-	    return tmp;
-	}
-        E tmp = front.getData();
-	front = front.getNext();
+    
+    public Node<E> dequeue(){
+	Node<E> tmp = bottom;
+        if(top==bottom){
+            bottom = new Node<E>(null);
+            top=bottom;
+        }else{
+            bottom=tmp.getNext();
+        }
 	return tmp;
     }
 
-    public boolean empty() { 
-	return front == null;
+    public E head(){
+	return bottom.getData();
     }
 
-    public E head() {
-	if ( empty() ) {
-	    return null;
+    public String toString(){
+	String s = "FRONT: " + bottom;
+	for (Node<E> tmp = bottom.getNext(); tmp!=null; tmp=tmp.getNext()){
+	    s += " --> " + tmp;
 	}
-	return front.getData();
-    }
-
-    public E tail() {
-	if ( back == null ) {
-	    return null;
-	}
-	return back.getData();
-    }
-
-    public String toString() {
-	String s = "";
-	Node<E> tmp = front;
-	while ( tmp != null ) {
-	    s = s + tmp.getData() + " <-- ";
-	    tmp = tmp.getNext();
-	}
-	s = s + "null";
 	return s;
     }
-
 }
