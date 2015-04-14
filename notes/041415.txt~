@@ -1,0 +1,10 @@
+Heuristic Search
+   Best first search
+-> frontier is a priority queue
+      things are removed based on priority
+    ex: insert in order base on priority and remove from fron b
+    	or
+	insert at end
+	remove by searching for the max/min priority
+
+priority is a simple to compute value that you hope gets you to the exit quickly
