@@ -1,0 +1,29 @@
+graphs
+  collection of nodes and edges
+    (vertex) node -> holds stuff
+
+    edge -> connects nodes
+
+cyclic (connected components) vs acyclic
+    cost associated with diff. modes of travel 
+       (weighted graph becomes relevant)
+
+DAG - directed acyclic graph
+    - directed graph without any cycles
+
+//~~~~~~~~~~~~~~~~~~~~~~~~\\
+
+Trees
+    - empty or directed acyclic graph with one node designated as the root
+    - root -> starting point
+    - child & parent -> connected to and 1 level downfrom its parent node
+    - leaf -> a node without children
+    - path -> the sequence of roots and and of edges connecting 2 nodes
+    - sibings -> children of the same parent
+    - subtree -> subsection of the tree under a node
+    - ancestors -> any nodes on the path from a node to the root
+    - descendants -> the nodes derived from a node
+    - height -> the length of the longest root to leaf path
+    - balance ->
+    - binary tree -> each node has 0, 1, or 2 children 
+   

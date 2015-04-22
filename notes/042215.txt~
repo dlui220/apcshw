@@ -1,0 +1,4 @@
+graphs
+  collection of nodes and edges
+    (vertex) node -> holds stuff
+    edge -> connects nodes
