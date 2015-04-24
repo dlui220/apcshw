@@ -1,4 +1,71 @@
 graphs
   collection of nodes and edges
     (vertex) node -> holds stuff
+
     edge -> connects nodes
+
+cyclic (connected components) vs acyclic
+    cost associated with diff. modes of travel 
+       (weighted graph becomes relevant)
+
+DAG - directed acyclic graph
+    - directed graph without any cycles
+
+//~~~~~~~~~~~~~~~~~~~~~~~~\\
+
+Trees
+    - empty or directed acyclic graph with one node designated as the root
+    - root -> starting point
+    - child & parent -> connected to and 1 level downfrom its parent node
+    - leaf -> a node without children
+    - path -> the sequence of roots and and of edges connecting 2 nodes
+    - sibings -> children of the same parent
+    - subtree -> subsection of the tree under a node
+    - ancestors -> any nodes on the path from a node to the root
+    - descendants -> the nodes derived from a node
+    - height -> the length of the longest root to leaf path
+    - balance ->
+    - binary tree -> each node has 0, 1, or 2 children 
+   
+//~~~~~~~~~~~~~~~~~~~~~~~\\
+
+    O
+   / \
+  O   O
+
+left and right child nodes
+
+Binary Search Tree
+   - for all nodes, left child node is always smaller than the right
+   - binary tree where given the value V in any node n, all the values
+     in n's left subtree are less than V and all of the values in n's right
+     subtree are greater than V
+
+public Node search(Node T, integer i){
+       
+       while( T != null){
+          int c = T.getData().compareTo(i);
+	  if (c == 0){
+	     return T;
+	  } else if (c > 0) {
+	     T=T.getRight();
+          } else {
+      	     T = T.getLeft();
+       }
+       return null;
+     }      
+
+
+insert
+  node n = new node(i);
+  if (T == null){
+     T = n;
+     return;
+  }    
+// insert as a new leaf
+   1) set t to Root
+   2) search for n but use c-piggyback pointer T2 to follow T
+   3) T2 now poits to the new nodes parent
+   4) insert the new node to the left or right of T2 as appropriate	  
+
+process of working: create node -> tree class -> insert -> search routine
