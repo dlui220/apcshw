@@ -1,6 +1,23 @@
 public class bst {
     private Node<Integer> l;
     
+    public Node search(Node t, int i){
+	if (t==null || t.getData() ==i)
+	    return t;
+	else if (t.getData() < i)
+	    return search(t.getLeft(),i);
+	else
+	    return saerch(t.getRight(),i);
+    }
+
+    public String search(int i){
+	Node retval = search(r,i);
+	if(retval == null)
+	    return "Not found";
+	else
+	    return "" + retval;
+    }
+    
     public void insert(Node t, int i){
 	Node<Integer> temp = new Node<Integer>(i);
 	if (t.getData() == i){
@@ -22,10 +39,11 @@ public class bst {
     }
 
     public String toString(){
-	String s = "";
-	
+	return traverse(r);
     }
-    public Node search(Node t, int i){
+
+    public String traverse(Node t){
+	
     }
     
 }
