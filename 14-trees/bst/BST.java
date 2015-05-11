@@ -58,17 +58,30 @@ public class BST{
 
 
     public String traverse(Node t){
-	String result = "";
+	//	String result = "";
 	if (t == null){
 	    return "";
-	}
+	} else {
+	    return traverse(t.getLeft()) + t.getData()+", "+ traverse(t.getRight());
+	    /*
 	result += traverse(t.getLeft());
 	result += "  ";
 	result += traverse(t.getRight());
 	result += "  ";
 	result += t.getData();
 	result += "\n";
-	return result;
+	return result;*/
+	}
+    }
+    public int numNodes(Node T){
+	if (T==null){
+	    return 0;}
+	else {
+	    return 1 + numNodes(T.getLeft()) + numNodes(T.getRight());
+	}
+    }
+    public int maxValue(){
+	
     }
     public static void main(String[] args){
 	BST t = new BST();
@@ -81,6 +94,7 @@ public class BST{
 	System.out.println(t);
 	//				t.insert(30);
 	System.out.println(t.search(30));
+	System.out.println(t.numNodes(t.r));
     }
 }
 
