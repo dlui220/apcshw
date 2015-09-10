@@ -1,0 +1,9 @@
+diam(Node t){
+  if (t==null){
+     return 0;
+  } else {
+     int pl1 = height(t.getleft())+height(t.getRight())+2;
+     int pl2 = diam(t.getLeft());
+     int pl3 = diam(t.getRight());
+  } return max(pl1,pl2,pl3);
+}

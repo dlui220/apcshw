@@ -1,0 +1,14 @@
+hashing / hasing tables
+- you want to store data in a table (array) by some unique ID
+- a hash function is a mapping that takes an id and converts 
+  it into a table index
+- ex. ID is OSIS #
+      h(x) = x % 10000
+better might be:
+       h(x) = (product of all non-zero digits in x) % 10000 (always % tablesize)
+
+When multiple IDs hash to the same table index we have a collision or clash
+-> Your hash table must be large enough so that it is sparsely populated
+-> Try to have a good hash function, one that distributes our IDs all over the
+   array
+
